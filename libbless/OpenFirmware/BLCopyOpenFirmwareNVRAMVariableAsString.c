@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2003-2005 Apple Computer, Inc. All rights reserved.
+ * Copyright (c) 2005-2007 Apple Inc. All Rights Reserved.
  *
  * @APPLE_LICENSE_HEADER_START@
  * 
@@ -21,11 +21,24 @@
  * @APPLE_LICENSE_HEADER_END@
  */
 /*
- *  BLSetActiveBIOSBootDevice.c
+ *  BLCopyOpenFirmwareNVRAMVariableAsString.c
  *  bless
  *
- *  Created by Shantonu Sen <ssen@apple.com> on Tue Jul 22 2003.
- *  Copyright (c) 2003-2005 Apple Computer, Inc. All rights reserved.
+ *  Created by Shantonu Sen on 7/7/07.
+ *  Copyright 2007 Apple Inc. All Rights Reserved.
  *
  */
 
+#include <IOKit/IOKitLib.h>
+#include <IOKit/IOKitKeys.h>
+
+#include "bless.h"
+#include "bless_private.h"
+
+int BLCopyOpenFirmwareNVRAMVariableAsString(BLContextPtr context,
+                                           CFStringRef  name,
+                                           CFStringRef *value)
+{
+    // actually, the same thing as for EFI
+    return BLCopyEFINVRAMVariableAsString(context, name, value);
+}
